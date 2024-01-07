@@ -1,19 +1,24 @@
 import { closeModal } from "./modal";
-import { editPopup, addPopup } from "../index";
-import { addCard, clickOnImage, removeCard, likeCard } from "./card";
+import { editPopup, addPopup, clickOnImage } from "../index";
+import { addCard, removeCard, likeCard } from "./card";
 
 export const editProfileForm = document.forms.editForm;
 const nameInput = editProfileForm.name;
 const descInput = editProfileForm.description;
+const profileTitle = document.querySelector(".profile__title");
+const profileDesc = document.querySelector(".profile__description");
 
 export const newPlaceForm = document.forms.newPlace;
 const placeName = newPlaceForm.placename;
 const placeLink = newPlaceForm.link;
 
+export function fillEditPopupInputs() {
+  nameInput.value = profileTitle.textContent;
+  descInput.value = profileDesc.textContent;
+}
+
 export function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  const profileTitle = document.querySelector(".profile__title");
-  const profileDesc = document.querySelector(".profile__description");
   profileTitle.textContent = nameInput.value;
   profileDesc.textContent = descInput.value;
   closeModal(editPopup);

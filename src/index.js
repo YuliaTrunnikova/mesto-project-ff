@@ -6,8 +6,9 @@ import {
   editProfileForm,
   newPlaceForm,
   handlePlaceFormSubmit,
+  fillEditPopupInputs,
 } from "./scripts/forms";
-import { addCard, removeCard, likeCard, clickOnImage } from "./scripts/card";
+import { addCard, removeCard, likeCard } from "./scripts/card";
 
 // @todo: Темплейт карточки
 export const cardTemplate = document.querySelector("#card-template").content;
@@ -18,6 +19,9 @@ const profileEditButton = document.querySelector(".profile__edit-button");
 const addCardButton = document.querySelector(".profile__add-button");
 export const editPopup = document.querySelector(".popup_type_edit");
 export const addPopup = document.querySelector(".popup_type_new-card");
+const imagePopup = document.querySelector(".popup_type_image");
+const imagePopupPic = imagePopup.querySelector(".popup__image");
+const imagePopupCaption = imagePopup.querySelector(".popup__caption");
 
 // @todo: Функция создания карточки
 addCardButton.addEventListener("click", function () {
@@ -32,8 +36,17 @@ initialCards.forEach(function (card) {
   );
 });
 
+// @todo: Открыть попап с изображением карточки
+export function clickOnImage(name, link) {
+  imagePopupPic.src = link;
+  imagePopupPic.alt = "фотография региона " + name;
+  imagePopupCaption.textContent = name;
+  openModal(imagePopup);
+}
+
 // @todo: Редактировать профиль
 profileEditButton.addEventListener("click", function () {
+  fillEditPopupInputs();
   openModal(editPopup);
 });
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
