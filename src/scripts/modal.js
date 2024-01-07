@@ -17,8 +17,8 @@ function closeByEsc(evt) {
 
 function closeByClick(evt) {
   if (
-    evt.currentTarget.classList.contains("popup__close") ||
-    evt.currentTarget.classList.contains("popup")
+    evt.target.classList.contains("popup__close") ||
+    evt.target === evt.currentTarget 
   ) {
     closeModal(evt.currentTarget);
   }

@@ -37,7 +37,6 @@ export function handlePlaceFormSubmit(evt) {
     clickOnImage
   );
   document.querySelector(".places__list").prepend(card);
-  placeName.value = "";
-  placeLink.value = "";
+  newPlaceForm.reset();
   closeModal(addPopup);
 }
