@@ -1,5 +1,4 @@
 import { cardTemplate, clickOnImage } from "../index";
-import { openModal } from "./modal";
 
 export function removeCard(event) {
   const cardItem = event.target.closest(".places__item");

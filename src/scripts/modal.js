@@ -9,16 +9,14 @@ export function openModal(popup) {
 function closeByEsc(evt) {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".popup_is-opened");
-    if (openedPopup) {
-      closeModal(openedPopup);
-    }
+    closeModal(openedPopup);
   }
 }
 
 function closeByClick(evt) {
   if (
     evt.target.classList.contains("popup__close") ||
-    evt.target === evt.currentTarget 
+    evt.target === evt.currentTarget
   ) {
     closeModal(evt.currentTarget);
   }
